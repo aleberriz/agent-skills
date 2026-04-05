@@ -1,0 +1,11 @@
+{
+  "name": "agent-skills",
+  "description": "Reusable AI skill definitions for version control, analytics workflows, and semantic layer design.",
+  "plugins": [
+    {
+      "name": "core-skills",
+      "path": "plugins/core-skills",
+      "description": "Universal skills for git workflow, project scaffolding, Python/SQL tooling, semantic layer design, descriptive analytics, experimentation, and ML modeling."
+    }
+  ]
+}
