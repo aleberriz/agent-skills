@@ -1,0 +1,14 @@
+{
+  "name": "core-skills",
+  "description": "Universal skills for version control, project scaffolding, Python and SQL tooling, semantic layer design, descriptive analytics, experimentation, and ML modeling.",
+  "skills": [
+    "skills/analytics-descriptive",
+    "skills/analytics-experimentation",
+    "skills/analytics-ml",
+    "skills/analytics-semantic-layer",
+    "skills/process-git",
+    "skills/process-scaffold",
+    "skills/tooling-python",
+    "skills/tooling-sql"
+  ]
+}
