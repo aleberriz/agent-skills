@@ -136,7 +136,7 @@ On this branch, add: `README.md`, `AGENTS.md`, project configuration (`.gitignor
 git push -u origin chore/init-config
 gh pr create --title "chore: add project configuration and documentation" --body "..."
 # After merge:
-git checkout main && git pull --ff-only && git branch -d chore/init-config && git fetch --prune
+git checkout main && git pull && git branch -d chore/init-config && git fetch --prune
 ```
 
 ### Working on a branch
@@ -153,7 +153,7 @@ gh pr create --title "feat: add my new feature" --body "..."
 
 ```bash
 git checkout main
-git pull --ff-only
+git pull
 git branch -d feat/my-new-feature
 git fetch --prune
 ```
