@@ -155,12 +155,14 @@ After a PR is merged on the remote, clean up immediately. Stale branches create 
 
 ```bash
 git checkout main
-git pull
+git pull --ff-only
 git branch -d <merged-branch>
 git fetch --prune
 ```
 
 This sequence: switches to main, pulls the merged changes, deletes the local branch (which is now fully merged), and prunes remote-tracking references to branches that no longer exist on the remote.
+
+`--ff-only` enforces that main is never diverged locally. If this command fails, it signals an unexpected state — investigate rather than overriding it. In this workflow, a fast-forward pull is always valid because main receives no direct commits after initialization.
 
 If the local branch wasn't fully merged (e.g., it was squash-merged), use `git branch -D <branch>` instead of `-d`.
 
@@ -226,7 +228,7 @@ After merge:
 
 ```bash
 git checkout main
-git pull
+git pull --ff-only
 git branch -d chore/init-config
 git fetch --prune
 ```
