@@ -58,20 +58,26 @@ After installation, skills activate automatically based on context. Mention git,
 
 ### In Cursor IDE
 
-Copy or symlink individual skills into your project's `.cursor/skills/` directory or your global `~/.cursor/skills/` directory:
+Symlink skills into your global `~/.cursor/skills/` directory (recommended) or copy them into a project's `.cursor/skills/` directory.
+
+**Global symlink (recommended):** the symlink points at the live repo, so every `git pull` on this repo automatically updates the installed skill — no re-copy needed.
 
 ```bash
-# Global (applies to all projects)
 mkdir -p ~/.cursor/skills
-cp -r plugins/core-skills/skills/process-git ~/.cursor/skills/
+ln -s "$(pwd)/plugins/core-skills/skills/process-git" ~/.cursor/skills/process-git
+```
 
-# Per-project (applies to one repo)
+**Per-project copy** (useful when you want a pinned version or don't have this repo checked out locally):
+
+```bash
 mkdir -p /path/to/your-project/.cursor/skills
 cp -r plugins/core-skills/skills/process-git /path/to/your-project/.cursor/skills/
 
 # Install an entire category
 cp -r plugins/core-skills/skills/process-* /path/to/your-project/.cursor/skills/
 ```
+
+When using a copy rather than a symlink, re-run the `cp` command after pulling updates from this repo to keep the installed skill current.
 
 ### In any other tool (AGENTS.md reference)
 

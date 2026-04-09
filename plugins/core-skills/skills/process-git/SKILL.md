@@ -149,6 +149,10 @@ Use the merge strategy that preserves the most useful history for the project:
 
 Default to squash merge for most analytical work. The PR description captures the rationale, and a single clean commit per feature keeps the main branch scannable.
 
+When squash-merging on GitHub, the platform appends the PR number to the commit message (e.g., `fix: use --ff-only for post-merge pulls on main (#2)`). Leave this suffix — it creates a permanent cross-reference between the commit and the PR where the rationale lives.
+
+Leave the extended description field blank on squash merges. The PR description already carries the rationale. Adding a body here would duplicate content that lives in a more visible, better-formatted location.
+
 ## Post-Merge Hygiene
 
 After a PR is merged on the remote, clean up immediately. Stale branches create noise and ambiguity.
@@ -176,11 +180,11 @@ Commits are authored by the human. AI agents draft content, suggest commit messa
 
 When assisting a user with git operations:
 
-- Draft commit messages following these conventions, then present them for review
-- Draft PR descriptions, then let the user edit and submit
+- Draft the commit message and present it for explicit review before running any `git commit` command. Wait for the user to confirm or edit the message. Do not infer approval from silence or from the fact that they asked you to "commit the changes".
+- Draft PR title and description and present them for review before running `gh pr create`. Never open a PR without the user having seen and approved the title and body.
 - Never auto-commit without explicit user instruction
 - Never change `git config user.name` or `git config user.email`
-- When the user says "commit this", prepare the `git add` and `git commit` commands with the drafted message and execute only after the user confirms or the conversation context makes their intent unambiguous
+- When the user says "commit this", prepare the staged `git add` commands and the drafted `git commit -m "..."` command, show the message for review, and execute only after the user confirms or explicitly approves the message
 
 ## Repository Initialization
 
