@@ -1,5 +1,7 @@
 # 05 — Data storytelling
 
+> **For deeper analytical work,** see the dedicated [`analytics-data-storytelling`](../../analytics-data-storytelling/SKILL.md) skill. It is the terminal judgment layer for any data analysis, chart selection, visual design, common-error audit, and interactive or JavaScript-based visualization. The page you are reading is the lighter-weight section that lives inside `process-business-writing` for the case where data appears as part of general business prose.
+
 Numbers and charts are the parts of business writing where misleading the reader is easiest, often by accident. The conventions in this file aim at three goals: numbers that **inform**, charts that **work**, and prose around the data that is **honest**.
 
 ## Numbers as part of prose

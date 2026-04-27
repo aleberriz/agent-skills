@@ -33,6 +33,7 @@ agent-skills/
 │       ├── .claude-plugin/
 │       │   └── plugin.json                           # Plugin manifest listing all skills
 │       └── skills/
+│           ├── analytics-data-storytelling/SKILL.md  # Domain: data storytelling, charts, viz (terminal judgment for all viz tools)
 │           ├── analytics-descriptive/SKILL.md        # Domain: EDA, dashboards, comms (planned)
 │           ├── analytics-experimentation/SKILL.md    # Domain: A/B testing, power analysis (planned)
 │           ├── analytics-ml/SKILL.md                 # Domain: prediction, evaluation (planned)
