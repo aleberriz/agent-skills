@@ -33,3 +33,6 @@ env/
 *.skill
 evals/
 *-workspace/
+
+# Private course staging (PDFs, videos, transcripts) — never commit
+_course-private/

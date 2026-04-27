@@ -176,6 +176,7 @@ Skills use prefixed names that sort alphabetically into three groups, making it 
 
 | Skill | Status | Description |
 |-------|--------|-------------|
+| [process-business-writing](plugins/core-skills/skills/process-business-writing/SKILL.md) | **Active** | Clear, persuasive English prose: planning, structure, word choice, sentences, data storytelling, editing |
 | [process-git](plugins/core-skills/skills/process-git/SKILL.md) | **Active** | Branching model, conventional commits, PR hygiene, post-merge cleanup, repo initialization |
 | [process-scaffold](plugins/core-skills/skills/process-scaffold/SKILL.md) | Planned | Full repo scaffolding recipes for analytics and data projects |
 
