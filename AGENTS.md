@@ -37,6 +37,7 @@ agent-skills/
 │           ├── analytics-experimentation/SKILL.md    # Domain: A/B testing, power analysis (planned)
 │           ├── analytics-ml/SKILL.md                 # Domain: prediction, evaluation (planned)
 │           ├── analytics-semantic-layer/SKILL.md     # Domain: AI context, OSI, governance (planned)
+│           ├── process-business-writing/SKILL.md     # Cross-cutting: planning, structure, words, sentences, data, editing
 │           ├── process-git/SKILL.md                  # Cross-cutting: branching, commits, PRs
 │           ├── process-scaffold/SKILL.md             # Cross-cutting: repo initialization (planned)
 │           ├── tooling-python/SKILL.md               # Tooling: Poetry, Jupyter, viz (planned)
