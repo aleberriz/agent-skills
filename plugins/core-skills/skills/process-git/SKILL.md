@@ -7,7 +7,16 @@ description: Git workflow conventions covering branching model, conventional com
 
 Conventions for version control that make commit history, pull requests, and branch management consistently useful for human collaborators, for AI agents, and for the author's future self.
 
-These conventions follow [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) and are designed for solo practitioners and small teams where the analyst or engineer is the primary committer, with AI agents assisting as drafters. The principles are tool-agnostic: they apply in any IDE, any git client, any CI/CD system.
+These conventions follow [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) and are designed for solo practitioners and small teams where the analyst or engineer is the primary committer, with AI agents assisting as drafters.
+
+## Pre-Work Check
+
+Before making any changes, always verify:
+
+1. What branch are you on? Run `git branch` or `git status`.
+2. Is the branch up to date with remote main? Run `git fetch origin` then `git log HEAD..origin/main --oneline` to check for upstream commits you haven't pulled.
+
+If on `main` and upstream has commits you don't have, pull first: `git pull --ff-only`. Then create a new branch for the work.
 
 ## Branching Model
 
@@ -33,15 +42,13 @@ Use the same type prefixes as commits:
 
 Keep descriptions in kebab-case: `feat/power-calculator`, `docs/semantic-layer-fundamentals`, `chore/init-config`.
 
-### Why branch for everything
-
-The branch-per-topic model creates a clean PR history where each merge represents a complete, reviewable unit of work. This matters more in an AI-assisted workflow because the PR description is where human judgment is documented. The branch and its PR are the unit of accountability.
-
 ## Conventional Commits
 
 Every commit message follows [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/).
 
 ### Format
+
+Commit messages are always a single line. Details belong in the PR description, not the commit body.
 
 ```
 type: imperative description of what changed
@@ -76,27 +83,7 @@ Output: `refactor(semantic-layer): separate Omni and dbt content into subfolders
 - No period at the end
 - Keep it under 72 characters total
 - One logical change per commit; if a commit message needs "and", consider splitting it
-
-### When to add a body
-
-Most commits need only the subject line. The PR description carries the rationale.
-
-Add a commit body only when all three conditions are true:
-1. The *why* behind this specific commit is non-obvious
-2. The PR description doesn't already cover it (because the PR has many commits and this one needs its own context)
-3. Someone might accidentally undo this change without understanding the constraint it addresses
-
-Separate the body from the subject with a blank line. Write in plain prose, not bullet points. Do not restate what the diff already shows.
-
-```
-fix: cap LOD expression at account grain
-
-The original expression computed at transaction grain, which produced correct totals but inflated per-account averages by 3-4x when joined to the accounts topic. Capping at account grain matches the documented metric definition.
-```
-
-### When to add a footer
-
-Use `BREAKING CHANGE:` in the footer when a commit changes something that downstream consumers depend on, such as a renamed skill, a removed field, or a changed API. This is rare in documentation and analytics repos but important when it happens.
+- Never add a commit body; all rationale goes in the PR description
 
 ## Pull Request Discipline
 
@@ -114,9 +101,15 @@ If the PR contains a single commit, the PR title matches the commit message. If 
 
 ### PR description
 
-Write in markdown. Do not insert manual line breaks to wrap text. GitHub's UI handles wrapping, and hard-wrapped text renders poorly on different screen widths.
+Write in markdown. Do not insert manual line breaks to wrap text — GitHub's UI handles wrapping, and hard-wrapped text renders poorly on different screen widths.
 
-Structure the description around rationale, not mechanics. The diff shows *what* changed; the description explains *why* and provides context that the diff cannot convey.
+Style rules:
+- Prefer bullet points over prose
+- Avoid em-dashes; use commas or split into separate sentences
+- Do not add a "Testing" section unless the user explicitly requests it
+- Keep writing concise; omit filler and boilerplate
+
+Structure the description around rationale, not mechanics. The diff shows *what* changed; the description explains *why* and provides context the diff cannot convey.
 
 For substantive PRs, use this structure:
 
@@ -131,7 +124,7 @@ For substantive PRs, use this structure:
 
 ## Changes
 
-[Brief list of what was added/changed/removed, only when the diff is large enough that a guide is useful]
+[Brief bullet list of what was added/changed/removed, only when the diff is large enough that a guide is useful]
 
 ## References
 
@@ -142,20 +135,20 @@ For small PRs (config changes, typo fixes, single-file additions), a one-line su
 
 ### Merge strategy
 
-Use the merge strategy that preserves the most useful history for the project:
+- **Squash merge** when the branch has many small work-in-progress commits that are individually meaningless. GitHub auto-generates the squash commit title from the PR title — leave the extended description field blank; the PR description already carries the rationale.
+- **Merge commit** when the branch has well-structured commits that each represent a meaningful step.
 
-- **Squash merge** when the branch has many small work-in-progress commits that are individually meaningless. The squashed commit message should match the PR title.
-- **Merge commit** when the branch has well-structured commits that each represent a meaningful step. The merge commit preserves the full commit sequence.
+Default to squash merge for most analytical work. A single clean commit per feature keeps the main branch scannable.
 
-Default to squash merge for most analytical work. The PR description captures the rationale, and a single clean commit per feature keeps the main branch scannable.
-
-When squash-merging on GitHub, the platform appends the PR number to the commit message (e.g., `fix: use --ff-only for post-merge pulls on main (#2)`). Leave this suffix — it creates a permanent cross-reference between the commit and the PR where the rationale lives.
-
-Leave the extended description field blank on squash merges. The PR description already carries the rationale. Adding a body here would duplicate content that lives in a more visible, better-formatted location.
+When squash-merging on GitHub, the platform appends the PR number to the commit message (e.g., `fix: use --ff-only for post-merge pulls on main (#2)`). Leave this suffix — it creates a permanent cross-reference between the commit and the PR.
 
 ## Post-Merge Hygiene
 
-After a PR is merged on the remote, clean up immediately. Stale branches create noise and ambiguity.
+After a PR is merged and the remote branch is deleted, ask the user before running local cleanup:
+
+> "PR is merged. Want me to delete the local branch and pull the latest main?"
+
+If the user confirms:
 
 ```bash
 git checkout main
@@ -164,15 +157,15 @@ git branch -d <merged-branch>
 git fetch --prune
 ```
 
-This sequence: switches to main, pulls the merged changes, deletes the local branch (which is now fully merged), and prunes remote-tracking references to branches that no longer exist on the remote.
+This sequence: switches to main, pulls the merged changes fast-forward only, deletes the local branch, and prunes remote-tracking references.
 
-`--ff-only` enforces that main is never diverged locally. If this command fails, it signals an unexpected state — investigate rather than overriding it. In this workflow, a fast-forward pull is always valid because main receives no direct commits after initialization.
+If the local branch was squash-merged, use `git branch -D <branch>` instead of `-d`.
 
-If the local branch wasn't fully merged (e.g., it was squash-merged), use `git branch -D <branch>` instead of `-d`.
+`--ff-only` enforces that main is never diverged locally. If this command fails, it signals unexpected state — investigate rather than overriding.
 
 ### Never force-push to main
 
-Force-pushing to `main` rewrites shared history. There is no valid reason to do this in a properly managed repository. If `main` has a bad commit, revert it with a new commit. The revert itself is a documented decision.
+Force-pushing to `main` rewrites shared history. If `main` has a bad commit, revert it with a new commit. The revert itself is a documented decision.
 
 ## Authorship
 
@@ -180,11 +173,10 @@ Commits are authored by the human. AI agents draft content, suggest commit messa
 
 When assisting a user with git operations:
 
-- Draft the commit message and present it for explicit review before running any `git commit` command. Wait for the user to confirm or edit the message. Do not infer approval from silence or from the fact that they asked you to "commit the changes".
+- Draft the commit message (one-liner) and present it for explicit review before running any `git commit` command. Wait for the user to confirm or edit the message.
 - Draft PR title and description and present them for review before running `gh pr create`. Never open a PR without the user having seen and approved the title and body.
-- Never auto-commit without explicit user instruction
+- Never auto-commit or push without explicit user instruction
 - Never change `git config user.name` or `git config user.email`
-- When the user says "commit this", prepare the staged `git add` commands and the drafted `git commit -m "..."` command, show the message for review, and execute only after the user confirms or explicitly approves the message
 
 ## Repository Initialization
 
@@ -228,22 +220,9 @@ git push -u origin chore/init-config
 gh pr create --title "chore: add project configuration and documentation" --body "..."
 ```
 
-After merge:
-
-```bash
-git checkout main
-git pull --ff-only
-git branch -d chore/init-config
-git fetch --prune
-```
-
-### Why this pattern
-
-The init branch creates a PR that documents the foundational decisions (license choice, tooling choices, conventions) in a reviewable, linkable artifact. Starting with a clean PR history from commit zero signals intentional project management.
+After merge, ask before local cleanup (see Post-Merge Hygiene).
 
 ## References
 
 - [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/): the specification this skill implements
-- [Anthropic Agent Skills](https://github.com/anthropics/skills): the skills ecosystem and best practices for skill design
-- [Open Semantic Interchange (OSI)](https://github.com/open-semantic-interchange/OSI): vendor-agnostic semantic model standard, referenced here because these git conventions were designed with OSI-aligned analytics projects in mind
-- [fvadicamo/dev-agent-skills](https://github.com/fvadicamo/dev-agent-skills): community git workflow skills for Claude Code (software-dev focused; monitor for complementary patterns)
+- [Git Workflow Guidelines for LLMs](https://gist.github.com/aleberriz/64b52cb082480f3edbcd6ddb17015333): the personal conventions this skill is aligned with
