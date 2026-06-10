@@ -1,6 +1,11 @@
 {
-  "name": "agent-skills",
+  "name": "aleberriz-skills",
   "description": "Reusable AI skill definitions for version control, analytics workflows, and semantic layer design.",
+  "owner": {
+    "name": "aleberriz",
+    "email": "12673691+aleberriz@users.noreply.github.com",
+    "url": "https://github.com/aleberriz"
+  },
   "plugins": [
     {
       "name": "core-skills",

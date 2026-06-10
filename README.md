@@ -51,10 +51,14 @@ Register the marketplace and install:
 
 ```bash
 /plugin marketplace add aleberriz/agent-skills
-/plugin install core-skills@agent-skills
+/plugin install core-skills@aleberriz-skills
 ```
 
+The marketplace is named `aleberriz-skills` (the repo name `agent-skills` is reserved for Anthropic's official marketplace), so the install reference is `core-skills@aleberriz-skills`.
+
 After installation, skills activate automatically based on context. Mention git, commits, branching, PRs, or any covered topic and the relevant skill loads.
+
+> **Installing from a local clone:** `/plugin marketplace add <path-to-clone>` uses a `directory` source, which older Claude Code versions reject ("Update Claude Code and try again"). If you hit that, either update Claude Code, use the GitHub source above, or — for live local editing — symlink the skills into `~/.claude/skills/` (the Claude Code equivalent of the Cursor method below): `for d in plugins/core-skills/skills/*/; do ln -sfn "$(pwd)/$d" ~/.claude/skills/$(basename "$d"); done`. Symlinked skills load as personal skills, invoked as `/<skill-name>`.
 
 ### In Cursor IDE
 
@@ -99,14 +103,14 @@ Add to the project's `.claude/settings.json` to make the skills available automa
 ```json
 {
   "extraKnownMarketplaces": {
-    "agent-skills": {
+    "aleberriz-skills": {
       "source": {
         "source": "github",
         "repo": "aleberriz/agent-skills"
       }
     }
   },
-  "enabledPlugins": ["core-skills@agent-skills"]
+  "enabledPlugins": { "core-skills@aleberriz-skills": true }
 }
 ```
 
