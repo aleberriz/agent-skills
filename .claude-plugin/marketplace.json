@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "core-skills",
-      "path": "plugins/core-skills",
+      "source": "./plugins/core-skills",
       "description": "Universal skills for git workflow, project scaffolding, Python/SQL tooling, semantic layer design, descriptive analytics, experimentation, and ML modeling."
     }
   ]
