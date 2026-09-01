@@ -1,16 +1,4 @@
 {
   "name": "core-skills",
-  "description": "Universal skills for version control, project scaffolding, business writing and storytelling, analytical data storytelling and visualization, Python and SQL tooling, semantic layer design, descriptive analytics, experimentation, and ML modeling.",
-  "skills": [
-    "skills/analytics-data-storytelling",
-    "skills/analytics-descriptive",
-    "skills/analytics-experimentation",
-    "skills/analytics-ml",
-    "skills/analytics-semantic-layer",
-    "skills/process-business-writing",
-    "skills/process-git",
-    "skills/process-scaffold",
-    "skills/tooling-python",
-    "skills/tooling-sql"
-  ]
+  "description": "Universal skills for version control, project scaffolding, business writing and storytelling, analytical data storytelling and visualization, Python and SQL tooling, semantic layer design, descriptive analytics, experimentation, and ML modeling."
 }
