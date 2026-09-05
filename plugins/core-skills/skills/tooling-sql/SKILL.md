@@ -1,6 +1,12 @@
 ---
 name: tooling-sql
 description: "SQL formatting and style conventions for analytical work, covering dialect-aware patterns for Redshift, DuckDB, and BigQuery. Use this skill when writing SQL queries, reviewing SQL style, setting up SQL linting rules, or when the user asks about SQL formatting, CTE structure, naming conventions, or performance-aware query patterns. Also apply when writing SQL for dbt models, semantic layer definitions, or ad-hoc analysis."
+license: Apache-2.0
+compatibility:
+  - vibe
+  - anthropic
+  - cursor
+  - claude-code
 ---
 
 # SQL Style

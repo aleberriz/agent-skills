@@ -1,6 +1,12 @@
 ---
 name: analytics-ml
 description: "Machine learning modeling conventions for applied analytics: feature engineering, model evaluation, validation strategy, and deployment considerations. Use this skill when building predictive models, selecting features, choosing evaluation metrics, setting up train/test splits, or discussing ML methodology for business applications. Also apply when the user asks about classification, regression, churn prediction, forecasting, or any supervised/unsupervised learning task in an analytics context."
+license: Apache-2.0
+compatibility:
+  - vibe
+  - anthropic
+  - cursor
+  - claude-code
 ---
 
 # ML Modeling

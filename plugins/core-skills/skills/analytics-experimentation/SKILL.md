@@ -1,6 +1,12 @@
 ---
 name: analytics-experimentation
 description: "A/B testing and experimental design conventions: power analysis, randomization, sequential testing, and result interpretation. Use this skill when designing an A/B test, calculating sample size, choosing a testing methodology, interpreting experiment results, or discussing causal inference through randomized controlled trials. Also apply when the user asks about statistical significance, effect size, or experiment duration."
+license: Apache-2.0
+compatibility:
+  - vibe
+  - anthropic
+  - cursor
+  - claude-code
 ---
 
 # Experimentation
