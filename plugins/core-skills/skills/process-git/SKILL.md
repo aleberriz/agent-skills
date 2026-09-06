@@ -1,6 +1,12 @@
 ---
 name: process-git
-description: Git workflow conventions covering branching model, conventional commits, PR hygiene, post-merge cleanup, and repository initialization. Use this skill whenever working with git in any capacity, from committing changes and creating branches to writing commit messages, opening pull requests, merging, pruning branches, initializing new repos, or any other version control operation. Apply these conventions by default even when the user doesn't explicitly mention them, because consistent version control practices are foundational to every project. Also use this skill when the user asks about commit message format, branching strategy, PR descriptions, or repository setup.
+description: "Git workflow conventions covering branching model, conventional commits, PR hygiene, post-merge cleanup, and repository initialization. Use this skill whenever working with git in any capacity, from committing changes and creating branches to writing commit messages, opening pull requests, merging, pruning branches, initializing new repos, or any other version control operation. Apply these conventions by default even when the user doesn't explicitly mention them, because consistent version control practices are foundational to every project. Also use this skill when the user asks about commit message format, branching strategy, PR descriptions, or repository setup."
+license: Apache-2.0
+compatibility:
+  - vibe
+  - anthropic
+  - cursor
+  - claude-code
 ---
 
 # Git Workflow

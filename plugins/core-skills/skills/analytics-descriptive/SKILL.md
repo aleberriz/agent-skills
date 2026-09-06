@@ -1,6 +1,12 @@
 ---
 name: analytics-descriptive
 description: "Workflow conventions for descriptive and diagnostic analytics: exploratory data analysis, dashboard design, stakeholder communication, and reliability frameworks. Use this skill when structuring an analysis, writing findings for stakeholders, building dashboards, performing EDA, or when the user asks about how to communicate analytical results, frame recommendations, or organize analytical work."
+license: Apache-2.0
+compatibility:
+  - vibe
+  - anthropic
+  - cursor
+  - claude-code
 ---
 
 # Descriptive Analytics

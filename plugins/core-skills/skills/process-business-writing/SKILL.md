@@ -1,6 +1,12 @@
 ---
 name: process-business-writing
-description: Conventions for clear, persuasive business writing and storytelling in English — planning by purpose, audience, message and structure; paragraph-as-point composition; concrete word choice over jargon; short active sentences; ethical data storytelling; and disciplined editing. Apply this skill whenever generating or editing English prose for human readers — emails, memos, reports, slide decks, README sections, PR descriptions, dashboard copy, executive summaries, stakeholder analyses, release notes, commit-message bodies — even when the user does not explicitly ask for "good writing," because the same conventions raise the quality of every English text the agent produces.
+description: "Conventions for clear, persuasive business writing and storytelling in English — planning by purpose, audience, message and structure; paragraph-as-point composition; concrete word choice over jargon; short active sentences; ethical data storytelling; and disciplined editing. Apply this skill whenever generating or editing English prose for human readers — emails, memos, reports, slide decks, README sections, PR descriptions, dashboard copy, executive summaries, stakeholder analyses, release notes, commit-message bodies — even when the user does not explicitly ask for \"good writing,\" because the same conventions raise the quality of every English text the agent produces."
+license: Apache-2.0
+compatibility:
+  - vibe
+  - anthropic
+  - cursor
+  - claude-code
 ---
 
 # Business Writing and Storytelling

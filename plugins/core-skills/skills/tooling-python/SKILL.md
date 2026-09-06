@@ -1,6 +1,12 @@
 ---
 name: tooling-python
 description: "Python tooling conventions for analytics and data science work: Poetry for dependency management, Jupyter for notebooks, plotnine and Plotly for visualization, pandas for data manipulation. Use this skill when setting up a Python analytics environment, creating notebooks, managing dependencies with Poetry, choosing visualization libraries, or working with data in Python. Also apply when the user asks about Python project structure for data work, virtual environments, or notebook best practices."
+license: Apache-2.0
+compatibility:
+  - vibe
+  - anthropic
+  - cursor
+  - claude-code
 ---
 
 # Python Analytics
