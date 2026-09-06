@@ -2,11 +2,6 @@
 name: process-scaffold
 description: "Scaffold a new project repository with the right structure, configuration files, and documentation from the start. Use this skill when creating a new repo, initializing a project, setting up a new codebase, or when the user says things like 'start a new project', 'create a repo', 'set up a new repo', or 'init a new project'. Covers README, AGENTS.md, LICENSE, .gitignore, and stack-specific configuration for analytics and data projects."
 license: Apache-2.0
-compatibility:
-  - vibe
-  - anthropic
-  - cursor
-  - claude-code
 ---
 
 # Project Scaffold

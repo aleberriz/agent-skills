@@ -2,11 +2,6 @@
 name: analytics-data-storytelling
 description: "Conventions for analytical data storytelling and visualization: developing a data mindset, finding and interrogating data, building narratives, choosing the right chart, designing trustworthy and accessible visualizations, avoiding common errors, and adapting charts across print, mobile, presentation, and interactive contexts (including scrollytelling). The terminal judgment skill for any analytical visualization or data-driven communication; tooling-level skills defer to these conventions. Apply whenever the agent reads, transforms, or visualizes data for human audiences — notebooks, dashboards, reports, charts, or any visualization embedded in prose."
 license: Apache-2.0
-compatibility:
-  - vibe
-  - anthropic
-  - cursor
-  - claude-code
 ---
 
 # Analytical Data Storytelling and Visualization

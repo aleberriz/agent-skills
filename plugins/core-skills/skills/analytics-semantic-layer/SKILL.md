@@ -2,11 +2,6 @@
 name: analytics-semantic-layer
 description: "Conventions for designing and authoring semantic layer definitions: AI context fields, topic scoping, metric naming, and governance patterns aligned with the Open Semantic Interchange (OSI) standard. Use this skill when writing or reviewing semantic model definitions, authoring ai_context or description fields, designing topics or views in Omni or dbt/MetricFlow, or discussing semantic layer architecture and governance. Also use when working with OSI-aligned models or preparing a semantic layer for AI agent consumption."
 license: Apache-2.0
-compatibility:
-  - vibe
-  - anthropic
-  - cursor
-  - claude-code
 ---
 
 # Semantic Layer
