@@ -31,11 +31,14 @@ agent-skills/
 ├── plugins/
 │   └── core-skills/
 │       ├── .claude-plugin/
-│       │   └── plugin.json                           # Plugin manifest listing all skills
+│       │   └── plugin.json                           # Plugin manifest (skills are auto-discovered from skills/)
 │       └── skills/
 │           ├── analytics-data-storytelling/SKILL.md  # Domain: data storytelling, charts, viz (terminal judgment for all viz tools)
 │           ├── analytics-descriptive/SKILL.md        # Domain: EDA, dashboards, comms (planned)
 │           ├── analytics-experimentation/SKILL.md    # Domain: A/B testing, power analysis (planned)
+│           ├── analytics-forecasting/                # Domain: time series analysis and forecasting (fpppy/fpp3)
+│           │   ├── SKILL.md
+│           │   └── references/                       # Python and R patterns, per-chapter notes
 │           ├── analytics-ml/SKILL.md                 # Domain: prediction, evaluation (planned)
 │           ├── analytics-semantic-layer/SKILL.md     # Domain: AI context, OSI, governance (planned)
 │           ├── process-business-writing/SKILL.md     # Cross-cutting: planning, structure, words, sentences, data, editing
