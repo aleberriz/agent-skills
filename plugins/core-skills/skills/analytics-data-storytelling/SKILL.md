@@ -228,6 +228,7 @@ These show up frequently in AI-assisted analytical work. Reject them on sight.
 - **[process-git](../process-git/SKILL.md)**: governs commits and PR hygiene around analytical artifacts (notebooks, charts, dashboards).
 - **`tooling-python`** (planned): when present, it will carry mechanics for `plotnine`, `plotly`, `pandas`/`polars`, Jupyter, etc. It defers to this skill for *what* to make and *why*. There is no planned dedicated `tooling-d3-js` or `tooling-r` skill; advanced JavaScript visualization guidance is consolidated in [references/07-interactive-and-js-viz.md](references/07-interactive-and-js-viz.md).
 - **`analytics-descriptive`** (planned): when present, it will carry the methodological layer for exploratory analysis, dashboards and stakeholder communication. It defers to this skill for visualization judgment.
+- **[analytics-forecasting](../analytics-forecasting/SKILL.md)**: carries time series analysis and forecasting methodology. It defers to this skill for chart design and narrative, and adds forecast-specific conventions (fan charts, train/test markers, decomposition panels).
 - **`analytics-experimentation`** (planned): when present, it will carry power analysis, A/B test design and statistical inference. It defers to this skill for how to communicate experimental results visually.
 
 ## Quality checklist for the agent

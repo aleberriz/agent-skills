@@ -198,7 +198,8 @@ Skills use prefixed names that sort alphabetically into three groups, making it 
 | [analytics-data-storytelling](plugins/core-skills/skills/analytics-data-storytelling/SKILL.md) | **Active** | Data mindset, narrative arc, data quality, chart selection and adaptation, visual elements, common errors, interactive and JavaScript visualization (terminal judgment layer for all viz tools) |
 | [analytics-descriptive](plugins/core-skills/skills/analytics-descriptive/SKILL.md) | Planned | EDA, analysis structure, stakeholder communication, dashboards |
 | [analytics-experimentation](plugins/core-skills/skills/analytics-experimentation/SKILL.md) | Planned | A/B testing, power analysis, sequential testing, result interpretation |
-| [analytics-ml](plugins/core-skills/skills/analytics-ml/SKILL.md) | Planned | Feature engineering, model evaluation, forecasting, deployment |
+| [analytics-forecasting](plugins/core-skills/skills/analytics-forecasting/SKILL.md) | **Active** | Time series analysis and forecasting per *Forecasting: Principles and Practice* (Python first, R second): forecasts as distributions, explainable models, decomposition, explicit train/test splits, residual diagnostics |
+| [analytics-ml](plugins/core-skills/skills/analytics-ml/SKILL.md) | Planned | Feature engineering, model evaluation, deployment |
 | [analytics-semantic-layer](plugins/core-skills/skills/analytics-semantic-layer/SKILL.md) | Planned | AI context fields, topic scoping, metric governance (OSI-aligned) |
 
 ### Complementary skills (external)
